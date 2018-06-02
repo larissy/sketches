@@ -4,6 +4,8 @@ const int BTN = 7; // Button at 7
 
 int val = 0; // Store state of input pin
 
+int old_val = 0; // Store old state of input pin
+
 int state = 0; // 0 when LED off, 1 when LED on
 
 void setup() {
@@ -17,9 +19,11 @@ void loop() {
 
 val = digitalRead(BTN);
 
-if (val == HIGH) {
+if ((val == HIGH) && (old_val == LOW)) {
   state = 1 - state;
   }
+
+old_val = val;
 
 if (state == 1){
   digitalWrite(LED, HIGH);
