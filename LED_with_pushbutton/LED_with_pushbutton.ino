@@ -23,6 +23,10 @@ if ((val == HIGH) && (old_val == LOW)) {
   state = 1 - state;
   }
 
+if((val == LOW) && (old_val == HIGH)){
+  delay(10);
+  }
+
 old_val = val;
 
 if (state == 1){
